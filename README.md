@@ -5,6 +5,8 @@ Note: This is *not* the **Build a Portfolio Site** project.  Click [here](https:
 
 ## Goals ##
 
+Download the [project](http://udacity.github.io/responsive-images/downloads/RI-Project-Part-1-Start.zip)
+
 * Make the images fit in their containers in the viewport.
 * Restrain the width of the blog.
 * Drop the page weight.
@@ -13,7 +15,7 @@ Upon meeting the goals, a code will appear in the Udacity Feedback. Paste the co
 
 [More on the Udacity Front-End Grading Engine](https://github.com/udacity/frontend-grading-engine)
 
-## Current Problems with the Page ##
+## Problems with the Page ##
 
 * The text is readable, but the images overflow the viewport.
 * Page weight is massive: the images have been saved as JPEGs at low quality, but they're still too big.
@@ -89,18 +91,25 @@ The page has to be loaded via localhost.  This is how to set it up:
 Used Grunt and ImageMagick to shrink resolutions and compress images such that the size of the page drops below 1.5MB, while making sure the images remain sharp.
 
 * Installed ImageMagick
+
 * Installed npm
+
 * Installed grunt-cli
+
 * Installed grunt
 
    `npm install`
-   
+
 * Configured IIS
   - add MIME Type webp (image/webp)
   - add MIME Type woff (application/x-woff)
+
 * Added `<figure>` and `<figcaption>` tags around the `<img>` tags
+
 * Added `<section>` container
-* Added CSS
+
+* Added CSS setting `max-width: 100%;` for images
+
 * Open command prompt
  
   ```
@@ -108,3 +117,22 @@ Used Grunt and ImageMagick to shrink resolutions and compress images such that t
   npm install grunt-responsive-images --save-dev
   ```
 
+## Part 2 of the Makeover ##
+
+* Replaced the smiley png
+  - http://unicode-table.com/en/sets/
+  - Copy and paste the emoji (not the HTML code)
+
+* Used social media icons
+  - https://css-tricks.com/html-for-icon-font-usage/
+  - https://icomoon.io/app
+
+## Part 3 of the Makeover ##
+
+* Used `<picture>` tag to specify alternative sources for image files.
+
+* Used `srcset` to enable the browser to choose the most appropriate image to request, depending on viewport size and DPR.
+
+* Added a `sizes` attribute to the image with a media query and a viewport size.
+ 
+`srcset` and `sizes` together tell the browser the natural width of the image, and how wide the image will be displayed relative to viewport width. Knowing the display width of the image and the widths of the image files available to it, the browser has the information it needs to download the image with the right resolution for its needs that is as small as possible. And it can make this choice early in the page load while the HTML is still being parsed.

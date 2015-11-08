@@ -55,7 +55,7 @@ The page has to be loaded via localhost.  This is how to set it up:
 
   - Go to the IP address and click the drop down. Find and write down the IP address (e.g. 192.168.0.92).
 
-  - Pick a port. I don't recommend using port 80 but any other should do. I used 90.
+  - Pick a port. I don't recommend using port 80 but any other should do. I used 100.
 
   - Click ok.
 
@@ -73,18 +73,38 @@ The page has to be loaded via localhost.  This is how to set it up:
 
   - Repeat for IUSR
 
-* To bring up website on local host
+* To bring up the webpage on local host
 
   - Open Chrome and type in the IP address and port like this:
 
-    `192.168.0.142:90` (or whatever your port number is)
+    `192.168.0.142:100` (or whatever your port number is)
     
     or like this:
     
-    `localhost:90`
+    `localhost:100`
     
 
-## Steps taken ##
+## Part 1 of the Makeover ##
 
-* Used Grunt and ImageMagick to shrink resolutions and compress images such that the size of the page drops below 1.5MB, while making sure the images remain sharp.
-* 
+Used Grunt and ImageMagick to shrink resolutions and compress images such that the size of the page drops below 1.5MB, while making sure the images remain sharp.
+
+* Installed ImageMagick
+* Installed npm
+* Installed grunt-cli
+* Installed grunt
+
+   `npm install`
+   
+* Configured IIS
+  - add MIME Type webp (image/webp)
+  - add MIME Type woff (application/x-woff)
+* Added `<figure>` and `<figcaption>` tags around the `<img>` tags
+* Added `<section>` container
+* Added CSS
+* Open command prompt
+ 
+  ```
+  CD "D:\Documents\Educational\Udacity\ud882 Responsive Images\Project"
+  npm install grunt-responsive-images --save-dev
+  ```
+
